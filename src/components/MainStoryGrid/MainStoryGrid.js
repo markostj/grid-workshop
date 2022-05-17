@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
+import { QUERIES } from '../../constants';
 
 import {
   MAIN_STORY,
@@ -23,7 +24,9 @@ const MainStoryGrid = () => {
       <SecondaryStorySection>
         <StoryList>
           {SECONDARY_STORIES.map((story, index) => (
-            <SecondaryStory key={story.id} {...story} />
+            <SecondaryStoryWrapper key={story.id}>
+              <SecondaryStory {...story} />
+            </SecondaryStoryWrapper>
           ))}
         </StoryList>
       </SecondaryStorySection>
@@ -32,7 +35,9 @@ const MainStoryGrid = () => {
         <SectionTitle>Opinion</SectionTitle>
         <StoryList>
           {OPINION_STORIES.map((story, index) => (
-            <OpinionStory key={story.id} {...story} />
+            <OpinionStoryWrapper key={story.id}>
+              <OpinionStory {...story} />
+            </OpinionStoryWrapper>
           ))}
         </StoryList>
       </OpinionSection>
@@ -63,6 +68,14 @@ const SecondaryStorySection = styled.section`
   grid-area: secondary-stories;
 `;
 
+const SecondaryStoryWrapper = styled.section`
+  &:not(:last-child){ 
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--color-gray-300);
+  }
+`;
+
 const StoryList = styled.div`
   display: flex;
   flex-direction: column;
@@ -70,6 +83,22 @@ const StoryList = styled.div`
 
 const OpinionSection = styled.section`
   grid-area: opinion-stories;
+`;
+
+const OpinionStoryWrapper = styled.section`
+  &:not(:last-child){ 
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--color-gray-300);
+  }
+
+  @media ${QUERIES.tabletOnly} {
+    &:not(:last-child){ 
+      padding-bottom: initial;
+      margin-bottom: initial;
+      border-bottom: initial;
+    }
+  }
 `;
 
 const AdvertisementSection = styled.section`
