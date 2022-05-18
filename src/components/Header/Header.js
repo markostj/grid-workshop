@@ -6,7 +6,6 @@ import { QUERIES } from '../../constants';
 
 import MaxWidthWrapper from '../MaxWidthWrapper';
 import Logo from '../Logo';
-import Button from '../Button';
 
 const Header = () => {
   return (
@@ -14,17 +13,27 @@ const Header = () => {
       <SuperHeader>
         <Row>
           <ActionGroup>
-            <button>
+            <Button>
               <Search size={24} />
-            </button>
-            <button>
+            </Button>
+            <Button>
               <Menu size={24} />
-            </button>
+            </Button>
           </ActionGroup>
           <ActionGroup>
-            <button>
+            <UserButton>
               <User size={24} />
-            </button>
+            </UserButton>
+
+            <SubscribeContainer>
+              <SubscribeBtn>
+                Subscribe
+              </SubscribeBtn>
+              
+              <SubscribeRoute>
+                Already a subscriber?
+              </SubscribeRoute>
+            </SubscribeContainer>
           </ActionGroup>
         </Row>
       </SuperHeader>
@@ -36,8 +45,12 @@ const Header = () => {
 };
 
 const SuperHeader = styled.div`
-  padding: 16px 0;
+  padding: 32px 0;
   background: var(--color-gray-900);
+  @media ${QUERIES.desktopAndUp} {
+    background: initial;
+    margin-bottom: 80px;
+  }
   color: white;
 `;
 
@@ -65,6 +78,59 @@ const MainHeader = styled(MaxWidthWrapper)`
   justify-content: center;
   margin-top: 32px;
   margin-bottom: 48px;
+  @media ${QUERIES.desktopAndUp} {
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+  }
 `;
+
+const Button = styled.button`
+  @media ${QUERIES.desktopAndUp} {
+    color: var(--color-gray-900);
+  }
+`;
+const SubscribeBtn = styled.button`
+  padding: 10px 24px;
+  border-radius: 4px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  line-height: 18px;
+  text-transform: uppercase;
+  font-weight: var(--font-weight-bold);
+  font-family: var(--font-family-sans-serif);
+  letter-spacing: 1px;
+`;
+const UserButton = styled.button`
+  @media ${QUERIES.desktopAndUp} {
+    display: none;
+  }
+`;
+
+const SubscribeContainer = styled.div`
+  display: none;
+  @media ${QUERIES.desktopAndUp} {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+  }
+`;
+
+const SubscribeRoute = styled.a`
+  color: var(--color-gray-900);
+  text-decoration-line: underline;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: center;
+  position: absolute;
+  top: 44px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space:nowrap;
+`
 
 export default Header;
