@@ -20,6 +20,9 @@ const Wrapper = styled.article`
   color: var(--color-gray-900);
   display: flex;
   justify-content: space-between;
+  @media ${QUERIES.tabletOnly} {
+    flex-direction: column;
+  }
 `;
 
 const Avatar = styled.img`

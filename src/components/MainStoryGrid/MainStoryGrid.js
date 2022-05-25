@@ -33,13 +33,13 @@ const MainStoryGrid = () => {
 
       <OpinionSection>
         <SectionTitle>Opinion</SectionTitle>
-        <StoryList>
+        <StoryListOpinion>
           {OPINION_STORIES.map((story, index) => (
             <OpinionStoryWrapper key={story.id}>
               <OpinionStory {...story} />
             </OpinionStoryWrapper>
           ))}
-        </StoryList>
+        </StoryListOpinion>
       </OpinionSection>
 
       <AdvertisementSection>
@@ -56,12 +56,35 @@ const Wrapper = styled.div`
     'secondary-stories'
     'opinion-stories'
     'advertisement';
+  @media ${QUERIES.tabletOnly} {
+    grid-template-areas:
+    'main-story secondary-stories'
+    'advertisement advertisement'
+    'opinion-stories opinion-stories';
+    grid-template-columns: 1fr 250px;
+  }
+  @media ${QUERIES.laptopAndUp} {
+    grid-template-areas:
+    'main-story secondary-stories opinion-stories'
+    'main-story advertisement advertisement';
+    grid-template-columns: 500px 1fr 292px;
+  }
   gap: 48px;
+  @media ${QUERIES.tabletOnly} {
+    grid-gap: 48px 16px;
+  }
+  @media ${QUERIES.laptopAndUp} {
+    gap: 16px;
+  }
   margin-bottom: 48px;
 `;
 
 const MainStorySection = styled.section`
   grid-area: main-story;
+  @media ${QUERIES.tabletAndUp} {
+    padding-right: 16px;
+    border-right: 1px solid var(--color-gray-300);
+  }
 `;
 
 const SecondaryStorySection = styled.section`
@@ -81,8 +104,23 @@ const StoryList = styled.div`
   flex-direction: column;
 `;
 
+const StoryListOpinion = styled.div`
+  display: flex;
+  flex-direction: column;
+  @media ${QUERIES.tabletOnly} {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+`;
+
 const OpinionSection = styled.section`
   grid-area: opinion-stories;
+
+  @media ${QUERIES.laptopAndUp} {
+    padding-left: 16px;
+    border-left: 1px solid var(--color-gray-300);
+  }
 `;
 
 const OpinionStoryWrapper = styled.section`
@@ -103,6 +141,10 @@ const OpinionStoryWrapper = styled.section`
 
 const AdvertisementSection = styled.section`
   grid-area: advertisement;
+  @media ${QUERIES.laptopAndUp} {
+    padding-top: 16px;
+    border-top: 1px solid var(--color-gray-300);
+  }
 `;
 
 export default MainStoryGrid;

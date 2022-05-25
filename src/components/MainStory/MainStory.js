@@ -48,10 +48,10 @@ const Abstract = styled.p`
   display: -webkit-box;
   -webkit-line-clamp: 8;
   @media ${QUERIES.tabletOnly} {
-    -webkit-line-clamp: 10;
+    -webkit-line-clamp: 15;
   }
-  @media ${QUERIES.desktopAndUp} {
-    -webkit-line-clamp: 9;
+  @media ${QUERIES.laptopAndUp} {
+    -webkit-line-clamp: 11;
   }
   -webkit-box-orient: vertical;  
   overflow: hidden;

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
+import { QUERIES } from '../../constants';
 
 const SecondaryStory = ({ id, title, image, location, abstract }) => {
   return (
@@ -15,6 +16,9 @@ const SecondaryStory = ({ id, title, image, location, abstract }) => {
 
 const Wrapper = styled.article`
   display: grid;
+  @media ${QUERIES.tabletOnly} {
+    display: initial;
+  }
   grid-template-areas:
     'image heading'
     'image abstract';

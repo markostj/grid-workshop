@@ -47,7 +47,7 @@ const Header = () => {
 const SuperHeader = styled.div`
   padding: 32px 0;
   background: var(--color-gray-900);
-  @media ${QUERIES.desktopAndUp} {
+  @media ${QUERIES.laptopAndUp} {
     background: initial;
     margin-bottom: 80px;
   }
@@ -78,7 +78,7 @@ const MainHeader = styled(MaxWidthWrapper)`
   justify-content: center;
   margin-top: 32px;
   margin-bottom: 48px;
-  @media ${QUERIES.desktopAndUp} {
+  @media ${QUERIES.laptopAndUp} {
     position: absolute;
     top: 16px;
     left: 50%;
@@ -88,7 +88,7 @@ const MainHeader = styled(MaxWidthWrapper)`
 `;
 
 const Button = styled.button`
-  @media ${QUERIES.desktopAndUp} {
+  @media ${QUERIES.laptopAndUp} {
     color: var(--color-gray-900);
   }
 `;
@@ -104,14 +104,14 @@ const SubscribeBtn = styled.button`
   letter-spacing: 1px;
 `;
 const UserButton = styled.button`
-  @media ${QUERIES.desktopAndUp} {
+  @media ${QUERIES.laptopAndUp} {
     display: none;
   }
 `;
 
 const SubscribeContainer = styled.div`
   display: none;
-  @media ${QUERIES.desktopAndUp} {
+  @media ${QUERIES.laptopAndUp} {
     display: flex;
     position: relative;
     flex-direction: column;
