@@ -2,7 +2,7 @@ import React from 'react';
 import { Twitter, Facebook } from 'react-feather';
 import styled from 'styled-components/macro';
 import MaxWidthWrapper from '../MaxWidthWrapper';
-
+import { QUERIES } from '../../constants';
 import VisuallyHidden from '../VisuallyHidden';
 
 const Footer = () => {
@@ -139,6 +139,15 @@ const TopRow = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media ${QUERIES.tabletAndUp} {
+    flex-direction: row;
+  }
+  @media ${QUERIES.tabletOnly} {
+    justify-content: center;
+  }
+  @media ${QUERIES.laptopAndUp} {
+    justify-content: flex-end;
+  }
   gap: 16px;
   color: var(--color-gray-300);
   font-size: 0.875rem;
@@ -157,6 +166,10 @@ const Social = styled.div`
   path {
     stroke-width: 1.5px;
   }
+
+  @media ${QUERIES.tabletAndUp} {
+    margin-left: 48px;
+  }
 `;
 
 const TopNavList = styled.ul`
@@ -170,6 +183,17 @@ const MainNavArea = styled.div`
   gap: 32px;
   padding: 32px 0 48px;
   text-align: center;
+  @media ${QUERIES.tabletAndUp} {
+    display: grid;
+    flex-direction: initial;
+    text-align: initial;
+  }
+  @media ${QUERIES.tabletOnly} {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  @media ${QUERIES.laptopAndUp} {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 `;
 
 const MainNavHeading = styled.h2`
@@ -196,6 +220,9 @@ const Subfooter = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media ${QUERIES.laptopAndUp} {
+    align-items: flex-start;
+  }
 `;
 
 const Logo = styled.a`
